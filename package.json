@@ -1,0 +1,11 @@
+{
+  "name": "guess_number",
+  "version": "1.0.0",
+  "description": "A program that make a random number from a defined range and offers a user to guess it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dmitry Domnin",
+  "license": "ISC"
+}
