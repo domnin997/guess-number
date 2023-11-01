@@ -21,17 +21,30 @@
     text-align: center;
 }
 
+.workfield__input-cont {
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+}
+
 .workfield__input {
-    width: 100%;
+    width: 95%;
     height: 40px;
     padding: 5px 5px;
     background-color: white;
     border: 1px solid lightgray;
 }
 
+.workfield__submit-btn-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .workfield__submit-btn {
-    width: 70%;
+    width: 80%;
     height: 40px;
+    padding: 5px 5px;
     background-color: grey;
     border-radius: 6px;
 }

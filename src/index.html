@@ -39,7 +39,24 @@
                         </div>
                         
                     </div>
-                    <div class="workfield__standard-hint-container">
+                    <div class="chat__text-field">
+                        <div class="computer-msg">
+                            <p class="message">Привет! Это Вжух</p>
+                        </div>
+                        <div class="computer-msg">
+                            <p class="message">Я загадал тебе число, сначала от 1 до 100</p>
+                        </div>
+                        <div class="computer-msg">
+                            <p class="message">Попробуй угадать, если что, я дам посказки</p>
+                        </div>
+                        <div class="computer-msg">
+                            <img src="./assets/img/pngimg.com - yuri_gagarin_PNG65790.png"
+                                width="140px"
+                                height="140px">
+                        </div>
+                        <!-- <div class="test-text">Field</div> -->
+                    </div>
+                    <!-- <div class="workfield__standard-hint-container">
                         <p class="message standard-hint">Загаданное число <span>больше</span></p>
                     </div>
                     <div class="workfield__mistake-hint-container">
@@ -47,14 +64,7 @@
                     </div>
                     <div class="workfield__warning-container">
                         <p class="message warning">Введенное число находится за пределами диапазона</p>
-                    </div>
-                </div>
-                
-                <div class="range-input-wrap">
-                    <div class="workfield__range">
-                        <h3 class="range__h3">Загаданы числа в диапазоне:</h3>
-                        <p class="range__info">От <span class="range__start">0</span> до <span class="range__end">100</span></p>
-                    </div>
+                    </div> -->
                     <div class="workfield__input-cont">
                         <input class="workfield__input"
                             type="text"
@@ -66,6 +76,20 @@
                     </div>
                 </div>
                 
+                <div class="range-input-wrap">
+                    <div class="workfield__range">
+                        <h3 class="range__h3">Вжух загадал число:</h3>
+                        <p class="range__info">От <span class="range__start">0</span> до <span class="range__end">100</span></p>
+                    </div>
+                    <div class="attempts-num-cont">
+                        <p class="attempts-info">Попыток сделано: <span class="attempts-num"></span></p>
+                    </div>
+                    <div class="hints-block">
+                        <p>Подсказки</p>
+                    </div>
+                    
+                </div>
+                
             </div>
             
         </div>
@@ -73,5 +97,6 @@
     <footer class="app-footer">
 
     </footer>
+    <script src="./js/index.js"></script>
 </body>
 </html>

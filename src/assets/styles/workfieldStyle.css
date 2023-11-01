@@ -41,8 +41,38 @@
     border-radius: 50%;
 }
 
+.chat__text-field {
+    width: 100%;
+    height: 400px;
+    padding: 5px;
+    background: center / cover no-repeat url(../img/background-wall.jpg);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.test-text {
+    width: 100px;
+    height: 50px;
+    background-color: rgba(124, 244, 4, 0.02);
+    color: yellow;
+}
+
+
 .message {
     display: inline-block;
     background-color: white;
+    padding: 5px;
     border-radius: 8px;
+}
+
+.computer-msg {
+    background-color: rgba(128, 0, 128, 0);
+}
+
+.user-msg {
+    background-color: rgba(135, 206, 250, 0);
+    display: flex;
+    justify-content: end;
 }
