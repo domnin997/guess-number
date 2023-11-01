@@ -2,3 +2,9 @@
 @import url(./htmlStyle.css);
 @import url(./workfieldStyle.css);
 @import url(./inputBlockStyle.css);
+
+.app-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

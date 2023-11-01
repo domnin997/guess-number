@@ -48,3 +48,15 @@
     background-color: grey;
     border-radius: 6px;
 }
+
+.reset-btn-cont {
+    display: flex;
+    justify-content: center;
+}
+
+.reset-btn {
+    width: 80%;
+    height: 40px;
+    border-radius: 6px;
+    background-color: lightcoral;
+}

@@ -1,6 +1,8 @@
 let min = 1;
 let max = 100;
 let attemptNum = 0;
+let clueShowed = false;
+let isFinished = false;
 
 
 function createRandom (min, max) {
@@ -15,14 +17,18 @@ createRandom(min, max);
 const inputField = document.querySelector('.workfield__input');
 
 document.querySelector('.workfield__submit-btn').addEventListener('click', (event) => {
-    const userNum = inputField.value;
-    ++attemptNum;
-    document.querySelector('.attempts-num').innerText = attemptNum;
-    inputField.value = '';
-    checkNumber(userNum);
+    if (isFinished) {
+        inputField.value === '+' ? restartGame() : createMessage(`Не распознал`, false);
+        inputField.value = '';
+    } else {
+        const userNum = inputField.value;
+        ++attemptNum;
+        document.querySelector('.attempts-num').innerText = attemptNum;
+        inputField.value = '';
+        checkNumber(userNum);
+    }
+    
 })
-
-
 
 
 
@@ -37,16 +43,11 @@ function createMessage (text, isFromUser) {
     }
 
     document.querySelector('.chat__text-field').append(message);
-    // добавить в чат
 }
 
 function checkNumber (num) {
     
     createMessage(`Мое число: ${num}`, true);
-
-    if (attemptNum > 3) {
-        // Код для подсветки подсказки
-    }
 
     if (num < min || num > max) {
         
@@ -59,6 +60,70 @@ function checkNumber (num) {
         createMessage('Это число больше загаданного');
     } else if (num == madeNum) {
 
-        createMessage(`Ура! Угадал за ${attemptNum} попыток!`);
+        createMessage(`Ура! Угадал за ${attemptNum} ${getRightForm(attemptNum, ['попытку', 'попытки', 'попыток'])}!`);
+        isFinished = true;
+        createMessage('Можно начать игру заново - просто отправь мне +');
     }
+
+    isClueNeeded();
 }
+
+
+function isClueNeeded () {
+    
+    if (attemptNum > 3 && clueShowed === false && !isFinished) {
+      
+      let numType;
+      
+      madeNum % 2 === 0 ? numType = 'четное' : numType = 'нечетное';
+
+      const clueMessage = `Даю тебе подсказку: мое число ${numType}`;
+      createMessage(clueMessage, false);
+      document.querySelector('.clue-block').innerHTML = `<p>Загаданное число - ${numType}</p>`;
+      clueShowed = true;
+    
+    } 
+}
+
+
+function restartGame () {
+    const txtField = document.querySelector('.chat__text-field');
+    createRandom(min, max);
+    attemptNum = 0;
+    clueShowed = false;
+    isFinished = false;
+    document.querySelector('.clue-block').innerHTML = '';
+    document.querySelector('.attempts-num').innerText = '';
+    txtField.innerHTML = '';
+    createMessage('Хорошо, начинаем заново', false);
+    createMessage('Я загадал новое число, попытки обнулены', false);
+    createMessage('Твой ход', false);
+}
+
+
+function getRightForm (num, forms) {
+  
+      let n = Math.abs(num);
+      n %= 100;
+    
+      if (n >= 5 && n <= 20) {
+          return forms[2];
+        }
+  
+      n %= 10;
+      
+      if (n === 1) {
+          return forms[0];
+      }
+  
+      if (n >= 2 && n <= 4) {
+          return forms[1];
+      }
+
+      return forms[2];
+  }
+
+
+  document.querySelector('.reset-btn').addEventListener('click', () => {
+    restartGame();
+  })
