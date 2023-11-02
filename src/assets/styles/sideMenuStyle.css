@@ -1,0 +1,121 @@
+.side-menu {
+    width: 300px;
+    background-color: yellowgreen;
+    border-radius: 6px;
+}
+
+.current-range {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(176, 176, 176);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 6px 6px 0 0;
+}
+
+.current-range__info {
+    width: 70%;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.attempts-block {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgb(190, 190, 190);
+}
+
+.attempts-block__num {
+    min-width: 20%;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 8px;
+}
+
+.clue-block {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgb(176, 176, 176);
+}
+
+.clue-block__clue-text {
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    padding: 0 5px 0 5px;
+}
+
+.range-settings {
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgb(190, 190, 190);
+}
+
+.range-settings__input-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    justify-content: center;
+    gap: 10px;
+}
+
+.range-settings__input {
+    width: 40%;
+    text-align: center;
+    background-color: whitesmoke;
+    padding: 0 5px 0 5px;
+    border-radius: 6px;
+}
+
+.range-settings__set-btn {
+    width: 60%;
+    height: 40px;
+    border-radius: 6px;
+    background-color: lightcoral;
+}
+
+.workfield__input {
+    width: 95%;
+    height: 40px;
+    padding: 5px 5px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.workfield__submit-btn-cont {
+    padding: 1px 3px 6px 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-btn-cont {
+    height: 202px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.reset-btn {
+    width: 80%;
+    height: 40px;
+    border-radius: 6px;
+    background-color: lightcoral;
+}

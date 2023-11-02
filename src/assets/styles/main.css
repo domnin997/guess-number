@@ -1,9 +1,10 @@
 @import url(./reset_styles.css);
 @import url(./htmlStyle.css);
 @import url(./workfieldStyle.css);
-@import url(./inputBlockStyle.css);
+@import url(./sideMenuStyle.css);
 
 .app-main {
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;

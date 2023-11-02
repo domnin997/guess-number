@@ -4,33 +4,43 @@ let attemptNum = 0;
 let clueShowed = false;
 let isFinished = false;
 
+const attemptsContainer = document.querySelector('.attempts-block__num');
+const clueTxtField = document.querySelector('.clue-block__clue-text');
+attemptsContainer.innerText = '0';
 
 function createRandom (min, max) {
     // let minN = Math.ceil();
     // let maxN = Math.floor();
     window.madeNum = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log(madeNum);
 }
 
 createRandom(min, max);
 
+
+const notRequiredSymbs = new RegExp(/[^0-9]/);
 const inputField = document.querySelector('.workfield__input');
-
-document.querySelector('.workfield__submit-btn').addEventListener('click', (event) => {
-    if (isFinished) {
-        inputField.value === '+' ? restartGame() : createMessage(`Не распознал`, false);
-        inputField.value = '';
-    } else {
-        const userNum = inputField.value;
-        ++attemptNum;
-        document.querySelector('.attempts-num').innerText = attemptNum;
-        inputField.value = '';
-        checkNumber(userNum);
-    }
+document.querySelector('.workfield__submit-btn').addEventListener('click', () => {
     
+    const userInput = inputField.value;
+    inputField.value = '';
+    
+    if (isFinished) {
+
+        userInput === '+' ? restartGame() : createMessage(`Не распознал`, false);
+        
+    } else {
+        
+        if (!notRequiredSymbs.test(userInput)) {
+            ++attemptNum;
+            attemptsContainer.innerText = attemptNum;
+            checkNumber(userInput);
+        } else {
+            createMessage(`${userInput}`, true);
+            createMessage('Нужно ввести только целое число', false);
+        }
+        
+    } 
 })
-
-
 
 function createMessage (text, isFromUser) {
     const message = document.createElement('div');
@@ -79,7 +89,7 @@ function isClueNeeded () {
 
       const clueMessage = `Даю тебе подсказку: мое число ${numType}`;
       createMessage(clueMessage, false);
-      document.querySelector('.clue-block').innerHTML = `<p>Загаданное число - ${numType}</p>`;
+      clueTxtField.innerText = `Загаданное число - ${numType}`;
       clueShowed = true;
     
     } 
@@ -92,8 +102,8 @@ function restartGame () {
     attemptNum = 0;
     clueShowed = false;
     isFinished = false;
-    document.querySelector('.clue-block').innerHTML = '';
-    document.querySelector('.attempts-num').innerText = '';
+    clueTxtField.innerText = 'Нет подсказок';
+    attemptsContainer.innerText = '0';
     txtField.innerHTML = '';
     createMessage('Хорошо, начинаем заново', false);
     createMessage('Я загадал новое число, попытки обнулены', false);
