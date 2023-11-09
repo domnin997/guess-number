@@ -15,8 +15,8 @@
         <h1 class="app-header__h1">Игра <br>"Вжух! И угадал число"</h1>
     </header>
     <main class="app-main">
-        <div class="workfield__wrapper">
-            <div class="workfiled__input-block">
+        <div class="workfield-wrap">
+            <div class="workfiled">
                 
                 <div class="cat-container">
                     <img class="cat-vzhuh"
@@ -25,24 +25,23 @@
                     >
                 </div> 
                 
-                <div class="workfield__chat">
+                <div class="chat">
                     <div class="chat__header">
                         <div class="chat__header-img-cont">
                             <img class="chat__header-img"
                                  src="./assets/img/rounded-2.jpg" 
-                                 alt="Rounded cat"
+                                 alt="Аватар"
                             >
                         </div>
 
-                        <div class="chat__header-inf-wrap">
-                            <div class="chat__header-info-cont">
-                                <h3 class="chat__header-h3">Вжух</h3>
+                        <div class="chat__header-info-block">
+                            <div class="chat__header-info-wrap">
+                                <h2 class="chat__h2">Вжух</h2>
                                 <p class="chat__header-status">Онлайн</p>
                             </div>
                         </div>
-                        
-                        
                     </div>
+
                     <div class="chat__text-field">
                         <div class="computer-msg">
                             <p class="message">Привет! Это Вжух. Как Chat GPT, только кот</p>
@@ -55,30 +54,30 @@
                         </div>
                         <div class="computer-msg">
                             <img src="./assets/img/pngimg.com - yuri_gagarin_PNG65790.png"
-                                width="140px"
-                                height="140px">
-                        </div>
-                        
+                                 alt="Стикер"
+                                 width="140px"
+                                 height="140px"
+                            >
+                        </div>   
                     </div>
                     
-                    <div class="workfield__input-cont">
-                        <input class="workfield__input"
-                            type="text"
-                            placeholder="Ваше число"
+                    <div class="chat__input-cont">
+                        <input class="chat__input"
+                               type="text"
+                               placeholder="Ваше число"
                         >
                     </div>
-                    <div class="workfield__submit-btn-cont">
-                        <button class="workfield__submit-btn">Угадать</button>
+                    <div class="chat__submit-btn-cont">
+                        <button class="chat__submit-btn">Угадать</button>
                     </div>
                 </div>
                 
-
                 <div class="side-menu">
                     <div class="current-range">
                         <h2 class="current-range__h2">Вжух загадал число:</h2>
                         <p class="current-range__info">
-                            От <span class="current-range__start">1</span> 
-                            до <span class="current-range__end">100</span>
+                            От <span class="current-range__from">1</span> 
+                            до <span class="current-range__to">100</span>
                         </p>
                     </div>
                     <div class="attempts-block">
@@ -92,10 +91,10 @@
                     <div class="range-settings">
                         <h2>Настройка диапазона</h2>
                         <div class="range-settings__input-block">
-                            <input class="range-settings__input"
+                            <input class="range-settings__input from"
                                    type="text"
                                    placeholder="Число от">
-                            <input class="range-settings__input"
+                            <input class="range-settings__input to"
                                    type="text"
                                    placeholder="До">
                         </div>
@@ -111,9 +110,6 @@
             
         </div>
     </main>
-    <footer class="app-footer">
-
-    </footer>
-    <script src="./js/index.js"></script>
+    <script src="./js/index.js" type="module"></script>
 </body>
 </html>

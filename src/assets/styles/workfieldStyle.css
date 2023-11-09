@@ -8,15 +8,16 @@
 .app-header__h1 {
     text-align: center;
     font-size: 25px;
+    color: rgb(219, 219, 219);
 }
 
-.workfiled__input-block {
+.workfiled {
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-.workfield__chat {
+.chat {
     background-color: lightgray;
     width: 400px;
     border: 2px solid rgba(38, 38, 67, 0.745);
@@ -34,7 +35,7 @@
     border-bottom: 2px solid rgba(38, 38, 67, 0.745);
 }
 
-.chat__header-inf-wrap {
+.chat__header-info-block {
     width: 60%;
     display: flex;
     flex-direction: row;
@@ -42,7 +43,7 @@
     justify-content: center;
 }
 
-.chat__header-info-cont {
+.chat__header-info-wrap {
     width: 100px;
     display: flex;
     flex-direction: column;
@@ -51,7 +52,7 @@
     gap: 3px;
 }
 
-.chat__header-h3 {
+.chat__h2 {
     font-weight: 600;
 }
 
@@ -115,13 +116,34 @@
     height: 300px;
 }
 
-.workfield__input-cont {
+.chat__input-cont {
     padding: 3px 3px 6px 3px;
     display: flex;
     justify-content: center;
 }
 
-.workfield__submit-btn {
+.chat__input {
+    width: 95%;
+    height: 40px;
+    padding: 5px 5px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.chat__submit-btn-cont {
+    padding: 1px 3px 6px 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat__submit-btn-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat__submit-btn {
     width: 80%;
     height: 40px;
     padding: 5px 5px;
@@ -130,6 +152,6 @@
     transition-duration: 0.4s;
 }
 
-.workfield__submit-btn:hover {
+.chat__submit-btn:hover {
     background-color: rgb(173, 173, 173);
 }

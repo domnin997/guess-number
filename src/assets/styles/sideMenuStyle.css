@@ -91,21 +91,6 @@
     background-color: lightcoral;
 }
 
-.workfield__input {
-    width: 95%;
-    height: 40px;
-    padding: 5px 5px;
-    background-color: white;
-    border: 1px solid lightgray;
-}
-
-.workfield__submit-btn-cont {
-    padding: 1px 3px 6px 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .reset-btn-cont {
     height: 202px;
     display: flex;
