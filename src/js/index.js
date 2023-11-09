@@ -1,8 +1,13 @@
 import getRightForm from "./wordFormSelector.js";
-import handleRanheChange from "./changeRange.js";
+import handleRangeChange from "./changeRange.js";
+import createMessage from "./messageCreator.js";
+
+handleRangeChange(createMessage, restartGame);
 
 window.min = 1;
 window.max = 100;
+
+createRandomNum (min, max);
 
 let attemptNum = 0;
 let clueShowed = false;
@@ -12,26 +17,14 @@ const attemptsContainer = document.querySelector('.attempts-block__num');
       attemptsContainer.innerText = '0';
 
 const clueTxtField = document.querySelector('.clue-block__clue-text');
-const textField = document.querySelector('.chat__text-field');
+const chatTextField = document.querySelector('.chat__text-field');
 const chatInput = document.querySelector('.chat__input');
-
-function scrollDown () {
-    textField.scrollTop = textField.scrollHeight;
-}
-
-function createRandom (min, max) {
-    window.madeNum = Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-handleRanheChange(createMessage, restartGame);
-createRandom(min, max);
-
-const notRequiredSymbs = new RegExp(/[^0-9]/);
 
 document.querySelector('.chat__submit-btn').addEventListener('click', () => {
     
-    const userInput = chatInput.value;
-    chatInput.value = '';
+    const notRequiredSymbs = new RegExp(/[^0-9]/);
+    const userInput = chatInput.value.trim();
+                      chatInput.value = '';
     
     if (isFinished) {
         userInput === '+' ? restartGame() : createMessage(`Не распознал`, false);
@@ -46,22 +39,9 @@ document.querySelector('.chat__submit-btn').addEventListener('click', () => {
             createMessage('Нужно ввести только целое число', false);
         }
     }
-    
+
     scrollDown();
 })
-
-function createMessage (text, isFromUser) {
-    const message = document.createElement('div');
-          message.innerHTML = `<p class="message">${text}</p>`;
-    
-    if (!isFromUser) {
-        message.classList.add('computer-msg');
-    } else {
-        message.classList.add('user-msg');
-    }
-
-    document.querySelector('.chat__text-field').append(message);
-}
 
 function checkNumber (num) {
     
@@ -103,18 +83,27 @@ function isClueNeeded () {
 }
 
 function restartGame () {
-    const txtField = document.querySelector('.chat__text-field');
-    createRandom(min, max);
+    createRandomNum (min, max);
     attemptNum = 0;
     clueShowed = false;
     isFinished = false;
     clueTxtField.innerText = 'Нет подсказок';
     attemptsContainer.innerText = '0';
-    txtField.innerHTML = '';
+    chatTextField.innerHTML = '';
     createMessage('Хорошо, начинаем заново', false);
     createMessage('Я загадал новое число, попытки обнулены', false);
     createMessage('Твой ход', false);
 }
+
   document.querySelector('.reset-btn').addEventListener('click', () => {
     restartGame();
   })
+
+
+function createRandomNum (min, max) {
+    window.madeNum = Math.floor(Math.random() * (max - min + 1)) + min;
+}
+  
+function scrollDown () {
+    chatTextField.scrollTop = chatTextField.scrollHeight;
+}

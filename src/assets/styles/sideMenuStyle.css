@@ -1,6 +1,6 @@
 .side-menu {
     width: 300px;
-    background-color: yellowgreen;
+    background-color: lightgray;
     border-radius: 6px;
 }
 
@@ -88,7 +88,9 @@
     width: 60%;
     height: 40px;
     border-radius: 6px;
-    background-color: lightcoral;
+    color: rgb(200, 200, 200);
+    background-color: rgb(24, 13, 71);
+    transition-duration: 0.4s;
 }
 
 .reset-btn-cont {
@@ -102,5 +104,11 @@
     width: 80%;
     height: 40px;
     border-radius: 6px;
-    background-color: lightcoral;
+    color: rgb(200, 200, 200);
+    background-color: rgb(24, 13, 71);
+    transition-duration: 0.4s;
+}
+
+.reset-btn:hover, .range-settings__set-btn:hover {
+    color: white;
 }

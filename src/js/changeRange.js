@@ -1,4 +1,4 @@
-export default function handleRanheChange (createMessageFunc, restartGameFunc) {
+export default function handleRangeChange (createMessageFunc, restartGameFunc) {
 
     const rangeFromInput = document.querySelector('.from');
     const rangeToInput = document.querySelector('.to');
@@ -19,19 +19,26 @@ export default function handleRanheChange (createMessageFunc, restartGameFunc) {
     setRangeBtn.addEventListener('click', (e) => {
         
         if (rangeFromInput.value && rangeToInput.value) {
+
             const newMin = +rangeFromInput.value;
                             rangeFromInput.value = '';
-
+                            
             const newMax = +rangeToInput.value;
                             rangeToInput.value = '';
+                            
+            if (newMin > newMax || newMin === newMax) {
+                createMessageFunc('Диапазон должен идти по возрастанию, а его границы не должны быть равны', false);
+            
+            } else {
 
-            window.min = newMin;
-            window.max = newMax;
+                window.min = newMin;
+                window.max = newMax;
 
-            rangeFromCont.innerText = newMin;
-            rangeToCont.innerText = newMax;
+                rangeFromCont.innerText = newMin;
+                rangeToCont.innerText = newMax;
 
-        restartGameFunc();
+                restartGameFunc();
+            }
 
         } else {
             createMessageFunc('Укажите весь диапазон', false);

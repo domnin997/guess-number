@@ -147,11 +147,12 @@
     width: 80%;
     height: 40px;
     padding: 5px 5px;
-    background-color: rgb(144, 144, 144);
+    color: rgb(200, 200, 200);
+    background-color: rgb(24, 13, 71);
     border-radius: 6px;
     transition-duration: 0.4s;
 }
 
 .chat__submit-btn:hover {
-    background-color: rgb(173, 173, 173);
+    color: white;
 }
