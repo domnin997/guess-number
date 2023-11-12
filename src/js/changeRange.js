@@ -1,22 +1,16 @@
-export default function handleRangeChange (createMessageFunc, restartGameFunc) {
+import createMessage from "./messageCreator.js";
+import { onlyNumsInput } from "./utilites.js";
+import getDOMElements from "./DOMElements.js";
 
-    const rangeFromInput = document.querySelector('.from');
-    const rangeToInput = document.querySelector('.to');
-    const setRangeBtn = document.querySelector('.range-settings__set-btn');
-    const rangeFromCont = document.querySelector('.current-range__from');
-    const rangeToCont = document.querySelector('.current-range__to');
+export const handleRangeChange = function (restartGameFunc, updateRange) {
 
-    function onlyNumsInput (e) {
-        if (!/\d/.test(e.key))  {
-            e.preventDefault();
-        }
-    }
+    const {rangeFromInput, rangeToInput, setRangeBtn, rangeFromCont, rangeToCont} = getDOMElements();
     
     [rangeFromInput, rangeToInput].forEach((input) => {
         input.addEventListener('keypress', onlyNumsInput);
     });
 
-    setRangeBtn.addEventListener('click', (e) => {
+    setRangeBtn.addEventListener('click', () => {
         
         if (rangeFromInput.value && rangeToInput.value) {
 
@@ -27,21 +21,20 @@ export default function handleRangeChange (createMessageFunc, restartGameFunc) {
                             rangeToInput.value = '';
                             
             if (newMin > newMax || newMin === newMax) {
-                createMessageFunc('Диапазон должен идти по возрастанию, а его границы не должны быть равны', false);
+                createMessage('Диапазон должен идти по возрастанию, а его границы не должны быть равны', false);
             
             } else {
 
-                window.min = newMin;
-                window.max = newMax;
-
+                updateRange(newMin, newMax);
                 rangeFromCont.innerText = newMin;
                 rangeToCont.innerText = newMax;
 
                 restartGameFunc();
+                
             }
 
         } else {
-            createMessageFunc('Укажите весь диапазон', false);
+            createMessage('Укажите весь диапазон', false);
         }
     })
 
